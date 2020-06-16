@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:5432"
+#  backend:
+#    build: ./backend
+#    expose:
+#      - ${NODE_PORT}
+#    ports:
+#      - ${NODE_PORT}:${NODE_PORT}
+#    volumes:
+#      - ./backend/src:/app/src
+#    environment:
+#      - NODE_PORT=${NODE_PORT}
+#      - DB_HOST=${DB_HOST}
+#      - DB_PORT=${DB_PORT}
+#      - DB_USER=${DB_USER}
+#      - DB_PASSWORD=${DB_PASSWORD}
+#      - DB_NAME=${DB_NAME}
+#    command: npm run dev
+#    links:
+#      - db
