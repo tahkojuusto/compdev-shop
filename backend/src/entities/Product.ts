@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Min, Max } from 'class-validator';
 
-enum Unit {
+export enum Unit {
   KG = 'kg',
   PCS = 'pcs',
   L = 'l',
@@ -17,11 +17,11 @@ export class Product {
   @Max(30)
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   @Max(100)
-  description: string;
+  description?: string;
 
-  @Column()
+  @Column('real')
   @Min(0)
   price: number;
 

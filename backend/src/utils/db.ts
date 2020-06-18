@@ -8,7 +8,7 @@ const dbConfig: PostgresConnectionOptions = {
   username: config.db.user,
   password: config.db.password,
   database: config.db.database,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: ['src/entities/**/*.ts'],
   migrations: ['src/migrations/**/*.ts'],

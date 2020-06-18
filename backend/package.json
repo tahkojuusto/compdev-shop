@@ -13,7 +13,14 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "posttest": "npm run check",
+    "seed:create": "ts-node node_modules/.bin/typeorm migration:create -c seed -n",
+    "seed:run": "ts-node node_modules/.bin/typeorm migration:run -c seed",
+    "seed:revert": "ts-node node_modules/.bin/typeorm migration:revert -c seed",
+    "db:create": "ts-node node_modules/.bin/typeorm migration:create -c root -n",
+    "db:generate": "ts-node node_modules/.bin/typeorm migration:generate -c root -n",    
+    "db:run": "ts-node node_modules/.bin/typeorm migration:run -c root",
+    "db:revert": "ts-node node_modules/.bin/typeorm migration:revert -c root"
   },
   "author": "Julius Eerola",
   "license": "MIT",
