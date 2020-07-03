@@ -7,26 +7,16 @@ import { Order, OrderProduct } from '../entities';
 import { InputOrder, InputOrderProduct } from '../inputs';
 import { getRepository, Repository, In } from 'typeorm';
 import { validate, isUUID, isInt } from 'class-validator';
+import { API, APIProduct } from '../api';
 
-class APIProduct {
-  id: number;
-  name: string;
-  prices: {
-    effectiveAt: string;
-    price: number;
-  }[]
-}
-
-class InputProduct {
-  id: number;
-  quantity: number;
-}
 
 export class OrderController {
   private orderRepository: Repository<Order>;
+  private api: API;
 
   public constructor() {
     this.orderRepository = getRepository(Order);
+    this.api = new API(`${config.api.productCatalog.url}:${config.api.productCatalog.port}`);
   }
 
   public async getOrders(
@@ -142,14 +132,11 @@ export class OrderController {
 
   private async fetchProduct(order: Order, inputProduct: InputOrderProduct): Promise<OrderProduct> {
     const productId: number = inputProduct.productId;
-    const url: string = `${config.api.productCatalog.url}:${config.api.productCatalog.port}/products/${productId}`;
-    logger.verbose(`Invoking products microservice: GET ${url}`);
+    logger.verbose(`Invoking products microservice: GET /products/{productId}.`);
 
     let apiProduct: APIProduct | null = null;
     try {
-      const response: AxiosResponse<APIProduct> = await axios.get(url);
-      apiProduct = response.data;
-      logger.info(`Invoked products microservice with status ${response.status}: GET ${url}.`);
+      apiProduct = await this.api.getProductById(productId);
       logger.verbose(`Received response from products microservice: ${JSON.stringify(apiProduct)}`);
     } catch (ex) {
       logger.error(`Failed to invoke products microservice: ${ex.message}`);

@@ -59,3 +59,24 @@ services:
     command: npm run dev
     depends_on:
       - db
+      - product_catalog_api
+
+  graphql_api:
+    container_name: graphql-api
+    build: ./services/graphql-api
+    expose:
+      - ${GRAPHQL_API_PORT}
+    ports:
+      - ${GRAPHQL_API_PORT}:${NODE_PORT}
+    volumes:
+      - ./services/graphql-api/src:/app/graphql-api/src
+    environment:
+      - SERVICE_NAME=graphql-api
+      - NODE_PORT=${NODE_PORT}
+      - PRODUCT_CATALOG_API_URL=${PRODUCT_CATALOG_API_URL}
+      - PRODUCT_CATALOG_API_PORT=${PRODUCT_CATALOG_API_PORT}
+    command: npm run dev
+    depends_on:
+      - db
+      - product_catalog_api
+      - order_api
