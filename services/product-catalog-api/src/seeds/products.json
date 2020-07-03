@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Banana",
+    "description": "It's a yellow fruit.",
+    "unit": "kg"
+  },
+  {
+    "id": 2,
+    "name": "Apple",
+    "unit": "kg"
+  },
+  {
+    "id": 3,
+    "name": "Orange box",
+    "unit": "pcs"
+  }
+]

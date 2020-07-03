@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "effectiveAt": "2020-06-24T00:00:00Z",
+    "price": 1.99
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "effectiveAt": "2019-03-12T01:23:56Z",
+    "price": 1.80
+  },
+  {
+    "id": 3,
+    "productId": 2,
+    "effectiveAt": "2020-06-24T00:00:00Z",
+    "price": 3.00
+  },
+  {
+    "id": 4,
+    "productId": 3,
+    "effectiveAt": "2020-06-24T00:00:00Z",
+    "price": 12.34
+  }
+]

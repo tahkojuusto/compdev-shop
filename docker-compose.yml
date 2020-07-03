@@ -2,6 +2,7 @@ version: "3"
 
 services:
   db:
+    container_name: postgres
     image: postgres:alpine
     restart: always
     environment:
@@ -10,21 +11,51 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${DB_PORT}:5432"
-  backend:
-    build: ./backend
-    expose:
-      - ${NODE_PORT}
-    ports:
-      - ${NODE_PORT}:${NODE_PORT}
     volumes:
-      - ./backend/src:/app/src
+      - ./docker-init:/docker-entrypoint-initdb.d/
+
+  product_catalog_api:
+    container_name: product-catalog-api
+    build: ./services/product-catalog-api
+    expose:
+      - ${PRODUCT_CATALOG_API_PORT}
+    ports:
+      - ${PRODUCT_CATALOG_API_PORT}:${NODE_PORT}
+    volumes:
+      - ./services/product-catalog-api/src:/app/product-catalog-api/src
     environment:
+      - SERVICE_NAME=product-catalog-api
       - NODE_PORT=${NODE_PORT}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
+      - DB_SCHEMA=products
+    command: npm run dev
+    depends_on:
+      - db
+
+  order_api:
+    container_name: order-api
+    build: ./services/order-api
+    expose:
+      - ${ORDER_API_PORT}
+    ports:
+      - ${ORDER_API_PORT}:${NODE_PORT}
+    volumes:
+      - ./services/order-api/src:/app/order-api/src
+    environment:
+      - SERVICE_NAME=order-api
+      - NODE_PORT=${NODE_PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_SCHEMA=orders
+      - PRODUCT_CATALOG_API_URL=${PRODUCT_CATALOG_API_URL}
+      - PRODUCT_CATALOG_API_PORT=${PRODUCT_CATALOG_API_PORT}
     command: npm run dev
     depends_on:
       - db

@@ -1,0 +1,51 @@
+{
+  "name": "graphql-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node build/src/app.js",
+    "dev": "nodemon -L src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "seed:create": "ts-node node_modules/.bin/typeorm migration:create -c seed -n",
+    "seed:run": "ts-node node_modules/.bin/typeorm migration:run -c seed",
+    "seed:revert": "ts-node node_modules/.bin/typeorm migration:revert -c seed",
+    "db:create": "ts-node node_modules/.bin/typeorm migration:create -c root -n",
+    "db:generate": "ts-node node_modules/.bin/typeorm migration:generate -c root -n",
+    "db:run": "ts-node node_modules/.bin/typeorm migration:run -c root",
+    "db:revert": "ts-node node_modules/.bin/typeorm migration:revert -c root",
+    "db:drop": "ts-node node_modules/.bin/typeorm schema:drop -c root",
+    "db:delete": "rm -f src/migrations/*.ts",
+    "db:reset": "npm run db:drop && npm run db:delete && npm run db:generate Init && npm run db:run && npm run seed:run"
+  },
+  "author": "Julius Eerola",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.13.12",
+    "@types/winston": "^2.4.4",
+    "gts": "^2.0.2",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@types/express-winston": "^4.0.0",
+    "body-parser": "^1.19.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.2.1",
+    "typeorm": "^0.2.25",
+    "winston": "^3.2.1"
+  }
+}
