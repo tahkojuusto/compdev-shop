@@ -19,6 +19,10 @@ const config = {
       url: process.env.PRODUCT_CATALOG_API_URL,
       port: '8080',
     },
+    order: {
+      url: process.env.ORDER_API_URL,
+      port: '8080',
+    },
   },
   utils: {
     logLevel: process.env.LOG_LEVEL || 'info',
