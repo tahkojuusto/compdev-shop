@@ -5,6 +5,10 @@ dotenv.config();
 const environmentVariables: string[] = [
   'PRODUCT_CATALOG_API_URL',
   'PRODUCT_CATALOG_API_PORT',
+  'ORDER_API_URL',
+  'ORDER_API_PORT',
+  'AUTH0_ISSUER',
+  'AUTH0_AUDIENCE',
 ];
 
 for (const variable of environmentVariables) {
@@ -23,6 +27,10 @@ const config = {
       url: process.env.ORDER_API_URL,
       port: '8080',
     },
+  },
+  auth: {
+    issuer: process.env.AUTH0_ISSUER,
+    audience: process.env.AUTH0_AUDIENCE,
   },
   utils: {
     logLevel: process.env.LOG_LEVEL || 'info',

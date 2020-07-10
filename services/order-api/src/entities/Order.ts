@@ -25,6 +25,11 @@ export class Order {
   @PrimaryGeneratedColumn({ type: 'int', name: 'orderid' })
   id: number;
 
+  @Column({ name: 'userid' })
+  @IsDefined()
+  @Length(2, 50)
+  userId: string;
+
   @CreateDateColumn({ type: 'timestamp', name: 'created_ts' })
   createdAt: Date;
 

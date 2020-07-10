@@ -38,7 +38,6 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@types/express-winston": "^4.0.0",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",

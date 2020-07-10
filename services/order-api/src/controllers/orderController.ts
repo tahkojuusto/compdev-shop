@@ -26,7 +26,8 @@ export class OrderController {
     logger.verbose('Started GET /orders.');
 
     try {
-      const orders = await this.orderRepository.find({ relations: ['products'] });
+      const userId = res.locals.userId;
+      const orders = await this.orderRepository.find({ relations: ['products'], where: { userId }});
       logger.info('Executed GET /orders with status 200.');
       return res.status(200).json(classToPlain(orders));
     } catch (ex) {
@@ -50,8 +51,9 @@ export class OrderController {
         });
       }
 
+      const userId = res.locals.userId;
       const orderId = req.params.orderId;
-      const order: Order | undefined = await this.orderRepository.findOne(orderId, { relations: ['products'] });
+      const order: Order | undefined = await this.orderRepository.findOne(orderId, { relations: ['products'], where: { userId } });
       if (order) {
         logger.info(`Executed GET /orders/${orderId} with status 200.`);
         return res.status(200).json(classToPlain(order));
@@ -95,7 +97,10 @@ export class OrderController {
         });
       }
 
+      const userId: string = res.locals.userId;
+      
       const order: Order = new Order();
+      order.userId = userId;
       order.firstName = inputOrder.firstName;
       order.lastName = inputOrder.lastName;
       order.streetAddress = inputOrder.streetAddress;

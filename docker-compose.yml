@@ -70,11 +70,14 @@ services:
       - ${GRAPHQL_API_PORT}:${NODE_PORT}
     volumes:
       - ./services/graphql-api/src:/app/graphql-api/src
+      - ./services/graphql-api/types:/app/graphql-api/types
     environment:
       - SERVICE_NAME=graphql-api
       - NODE_PORT=${NODE_PORT}
       - PRODUCT_CATALOG_API_URL=${PRODUCT_CATALOG_API_URL}
       - PRODUCT_CATALOG_API_PORT=${PRODUCT_CATALOG_API_PORT}
+      - ORDER_API_URL=${ORDER_API_URL}
+      - ORDER_API_PORT=${ORDER_API_PORT}
     command: npm run dev
     depends_on:
       - db

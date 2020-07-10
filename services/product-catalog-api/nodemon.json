@@ -2,9 +2,9 @@
   "ignore": [".git", "node_modules/**/node_modules"],
   "verbose": false,
   "execMap": {
-    "ts": "node --require ts-node/register"
+    "ts": "ts-node --files"
   },
-  "watch": ["src/", ".env", "package.json"],
+  "watch": ["src/", "types/", ".env", "package.json"],
   "env": {
     "NODE_ENV": "development"
   },

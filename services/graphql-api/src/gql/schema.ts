@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 import { DocumentNode } from 'graphql';
 
 const typeDefs: DocumentNode = gql`
@@ -26,6 +26,9 @@ const typeDefs: DocumentNode = gql`
 
   type Order {
     id: Int!
+    userId: String!
+    createdAt: String!
+    updatedAt: String!
     firstName: String!
     lastName: String!
     streetAddress: String!
@@ -35,11 +38,30 @@ const typeDefs: DocumentNode = gql`
     products: [OrderProduct]!
   }
 
+  input InputOrder {
+    firstName: String!
+    lastName: String!
+    streetAddress: String!
+    postalCode: String!
+    email: String!
+    phoneNumber: String!
+    products: [InputOrderProduct]!
+  }
+
+  input InputOrderProduct {
+    productId: Int!
+    quantity: Int!
+  }  
+
   type Query {
     products: [Product]
     product(id: Int!): Product
     orders: [Order]
     order(id: Int!): Order
+  }
+
+  type Mutation {
+    createOrder(inputOrder: InputOrder!): Order
   }
 `;
 
