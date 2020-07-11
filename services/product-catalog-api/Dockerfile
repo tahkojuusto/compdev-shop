@@ -7,4 +7,4 @@ ADD . /app/product-catalog-api
 RUN npm run compile
 EXPOSE 8081
 
-CMD [ "node", "build/src/app.js" ]
+CMD [ "node", "build/src/server.js" ]

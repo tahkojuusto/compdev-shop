@@ -18,16 +18,7 @@ function initExpressApp() {
   const productRouter = new ProductRouter();
   app.use('/products', productRouter.getRouter());
 
-  // Start app
-  const port = process.env.NODE_PORT || 8080;
-  app.listen(port, () => {
-    logger.info(`Products microservice running at port ${port}.`);
-  });
+  return app;
 }
 
-(async () => {
-  logger.verbose('Starting products microservice.');
-  await initDbConnection();
-  logger.verbose('Created db connection');
-  initExpressApp();
-})();
+export { initExpressApp, initDbConnection };

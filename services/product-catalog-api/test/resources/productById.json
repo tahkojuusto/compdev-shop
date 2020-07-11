@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "name": "Apple",
+  "description": null,
+  "unit": "pcs",
+  "prices": [
+    {
+      "effectiveAt": "2020-01-01T00:00:00Z",
+      "price": 1.1
+    }
+  ]
+}

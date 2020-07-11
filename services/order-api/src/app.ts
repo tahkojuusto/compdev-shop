@@ -13,21 +13,12 @@ function initExpressApp() {
 
   // Middlewares
   app.use(bodyParser.json());
-  
+
   // Routers
   const orderRouter = new OrderRouter();
   app.use('/orders', orderRouter.getRouter());
-  
-  // Start app
-  const port = process.env.NODE_PORT || 8080;
-  app.listen(port, () => {
-    logger.info(`Orders microservice running at port ${port}.`);
-  });
+
+  return app;
 }
 
-(async () => {
-  logger.verbose('Starting orders microservice backend.');
-  await initDbConnection();
-  logger.verbose('Created db connection.');
-  initExpressApp();
-})();
+export { initExpressApp, initDbConnection };

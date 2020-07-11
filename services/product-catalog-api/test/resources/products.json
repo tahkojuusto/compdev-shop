@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Banana",
+    "description": "It's a yellow fruit.",
+    "unit": "kg",
+    "prices": [
+      {
+        "effectiveAt": "2020-06-24T00:00:00Z",
+        "price": 1.99
+      },
+      {
+        "effectiveAt": "2019-03-12T01:23:56Z",
+        "price": 1.8
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Apple",
+    "description": null,
+    "unit": "pcs",
+    "prices": [
+      {
+        "effectiveAt": "2020-01-01T00:00:00Z",
+        "price": 1.1
+      }
+    ]
+  }
+]

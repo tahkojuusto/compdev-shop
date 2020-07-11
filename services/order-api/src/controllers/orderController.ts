@@ -52,8 +52,10 @@ export class OrderController {
       }
 
       const userId = res.locals.userId;
-      const orderId = req.params.orderId;
+      const orderId = parseInt(req.params.orderId);
+
       const order: Order | undefined = await this.orderRepository.findOne(orderId, { relations: ['products'], where: { userId } });
+
       if (order) {
         logger.info(`Executed GET /orders/${orderId} with status 200.`);
         return res.status(200).json(classToPlain(order));
