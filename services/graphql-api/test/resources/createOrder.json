@@ -1,0 +1,14 @@
+{
+  "firstName": "Justus",
+  "lastName": "Tester",
+  "streetAddress": "Teststreet 1",
+  "postalCode": "00100",
+  "email": "jokke@sharklasers.com",
+  "phoneNumber": "04012345678",
+  "products": [
+    {
+      "productId": 1,
+      "quantity": 1
+    }
+  ]
+}

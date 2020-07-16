@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphQL mutations should create order 1`] = `
+Object {
+  "data": Object {
+    "createOrder": Object {
+      "createdAt": "2020-06-24T00:00:00Z",
+      "id": 1,
+      "updatedAt": "2020-06-24T00:00:00Z",
+      "userId": "testuser",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`GraphQL queries should return order by id 1`] = `
+Object {
+  "data": Object {
+    "order": Object {
+      "createdAt": "2020-06-24T00:00:00Z",
+      "email": "teemu.tester@mailinator.com",
+      "firstName": "Teemu",
+      "id": 1,
+      "lastName": "Tester",
+      "phoneNumber": "0401234567",
+      "postalCode": "00120",
+      "products": Array [
+        Object {
+          "description": "It's a yellow fruit.",
+          "name": "Banana",
+          "price": 1.99,
+          "productId": 1,
+          "quantity": 1,
+          "unit": "KG",
+        },
+        Object {
+          "description": null,
+          "name": "Apple",
+          "price": 2,
+          "productId": 2,
+          "quantity": 2,
+          "unit": "PCS",
+        },
+      ],
+      "streetAddress": "Street 1",
+      "updatedAt": "2020-06-24T00:00:00Z",
+      "userId": "testuser",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`GraphQL queries should return orders 1`] = `
+Object {
+  "data": Object {
+    "orders": Array [
+      Object {
+        "createdAt": "2020-06-24T00:00:00Z",
+        "email": "teemu.tester@mailinator.com",
+        "firstName": "Teemu",
+        "id": 1,
+        "lastName": "Tester",
+        "phoneNumber": "0401234567",
+        "postalCode": "00120",
+        "products": Array [
+          Object {
+            "description": "It's a yellow fruit.",
+            "name": "Banana",
+            "price": 1.99,
+            "productId": 1,
+            "quantity": 1,
+            "unit": "KG",
+          },
+          Object {
+            "description": null,
+            "name": "Apple",
+            "price": 2,
+            "productId": 2,
+            "quantity": 2,
+            "unit": "PCS",
+          },
+        ],
+        "streetAddress": "Street 1",
+        "updatedAt": "2020-06-24T00:00:00Z",
+        "userId": "testuser",
+      },
+      Object {
+        "createdAt": "2020-06-25T00:00:00Z",
+        "email": "teemu.tester@mailinator.com",
+        "firstName": "Teemu",
+        "id": 2,
+        "lastName": "Tester",
+        "phoneNumber": "0401234567",
+        "postalCode": "00120",
+        "products": Array [
+          Object {
+            "description": "It's a yellow fruit.",
+            "name": "Banana",
+            "price": 1.99,
+            "productId": 1,
+            "quantity": 1,
+            "unit": "KG",
+          },
+        ],
+        "streetAddress": "Street 1",
+        "updatedAt": "2020-06-25T00:00:00Z",
+        "userId": "testuser",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`GraphQL queries should return product by id 1`] = `
+Object {
+  "data": Object {
+    "product": Object {
+      "description": "It's a yellow fruit.",
+      "id": 1,
+      "name": "Banana",
+      "unit": "KG",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`GraphQL queries should return products 1`] = `
+Object {
+  "data": Object {
+    "products": Array [
+      Object {
+        "description": "It's a yellow fruit.",
+        "id": 1,
+        "name": "Banana",
+        "unit": "KG",
+      },
+      Object {
+        "description": null,
+        "id": 2,
+        "name": "Apple",
+        "unit": "PCS",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

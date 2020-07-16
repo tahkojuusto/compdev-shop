@@ -1,0 +1,8 @@
+query getProductById($id: Int!) {
+  product(id: $id) {
+    id
+    name
+    description
+    unit
+  }
+}

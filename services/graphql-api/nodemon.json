@@ -4,7 +4,7 @@
   "execMap": {
     "ts": "ts-node --files"
   },
-  "watch": ["src/", "types/", ".env", "package.json"],
+  "watch": ["src/", "test/", "types/", ".env", "package.json"],
   "env": {
     "NODE_ENV": "development"
   },

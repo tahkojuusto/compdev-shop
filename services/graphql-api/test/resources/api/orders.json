@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "userId": "testuser",
+    "createdAt": "2020-06-24T00:00:00Z",
+    "updatedAt": "2020-06-24T00:00:00Z",
+    "firstName": "Teemu",
+    "lastName": "Tester",
+    "streetAddress": "Street 1",
+    "postalCode": "00120",
+    "email": "teemu.tester@mailinator.com",
+    "phoneNumber": "0401234567",
+    "products": [
+      {
+        "productId": 1,
+        "name": "Banana",
+        "price": 1.99,
+        "quantity": 1
+      },
+      {
+        "productId": 2,
+        "name": "Apple",
+        "price": 2.00,
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": "testuser",
+    "createdAt": "2020-06-25T00:00:00Z",
+    "updatedAt": "2020-06-25T00:00:00Z",
+    "firstName": "Teemu",
+    "lastName": "Tester",
+    "streetAddress": "Street 1",
+    "postalCode": "00120",
+    "email": "teemu.tester@mailinator.com",
+    "phoneNumber": "0401234567",
+    "products": [
+      {
+        "productId": 1,
+        "name": "Banana",
+        "price": 1.99,
+        "quantity": 1
+      }
+    ]
+  } 
+]

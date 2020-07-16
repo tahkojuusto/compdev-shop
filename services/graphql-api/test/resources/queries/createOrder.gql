@@ -1,0 +1,8 @@
+mutation createOrder($inputOrder: InputOrder!) {
+  createOrder(inputOrder: $inputOrder) {
+    id
+    userId
+    createdAt
+    updatedAt
+  }
+}

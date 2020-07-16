@@ -1,0 +1,22 @@
+query getOrders {
+  orders {
+    id
+    userId
+    createdAt
+    updatedAt
+    firstName
+    lastName
+    streetAddress
+    postalCode
+    email
+    phoneNumber
+    products {
+      productId
+      name
+      description
+      unit
+      price
+      quantity
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "firstName": "Teemu",
+  "lastName": "Tester",
+  "streetAddress": "Street 1",
+  "postalCode": "00120",
+  "email": "teemu.tester@mailinator.com",
+  "phoneNumber": "0401234567",
+  "products": [
+    {
+      "productId": 1,
+      "quantity": 1
+    }
+  ]
+}
