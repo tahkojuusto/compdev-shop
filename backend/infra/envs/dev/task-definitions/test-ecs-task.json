@@ -1,0 +1,23 @@
+  
+[
+  {
+      "name": "test-ecs-task",
+      "image": "alexgaynor/test-http",
+      "cpu": 1,
+      "memory": 256,
+      "links": [],
+      "portMappings": [
+          {
+              "containerPort": 8080,
+              "hostPort": 80,
+              "protocol": "tcp"
+          }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": [],
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": []
+  }
+]

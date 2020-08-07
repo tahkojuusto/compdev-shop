@@ -12,7 +12,7 @@ services:
     ports:
       - "${DB_PORT}:5432"
     volumes:
-      - ./docker-init:/docker-entrypoint-initdb.d/
+      - ./infra/docker-init:/docker-entrypoint-initdb.d/
 
   product_catalog_api:
     container_name: product-catalog-api
